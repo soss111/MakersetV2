@@ -1,0 +1,127 @@
+[build]
+  command = "cd frontend && npm run build"
+  publish = "frontend/dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# API redirects - redirect /api/* to Netlify Functions
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Auth endpoints
+[[redirects]]
+  from = "/api/auth/register"
+  to = "/.netlify/functions/auth-register"
+  status = 200
+
+[[redirects]]
+  from = "/api/auth/login"
+  to = "/.netlify/functions/auth-login"
+  status = 200
+
+[[redirects]]
+  from = "/api/auth/profile"
+  to = "/.netlify/functions/auth-profile"
+  status = 200
+
+[[redirects]]
+  from = "/api/auth/change-password"
+  to = "/.netlify/functions/auth-change-password"
+  status = 200
+
+# Settings endpoints
+[[redirects]]
+  from = "/api/settings"
+  to = "/.netlify/functions/settings"
+  status = 200
+
+[[redirects]]
+  from = "/api/settings/*"
+  to = "/.netlify/functions/settings-key"
+  status = 200
+
+# Catalog endpoints
+[[redirects]]
+  from = "/api/parts"
+  to = "/.netlify/functions/parts"
+  status = 200
+
+[[redirects]]
+  from = "/api/parts/*"
+  to = "/.netlify/functions/parts-id"
+  status = 200
+
+[[redirects]]
+  from = "/api/tools"
+  to = "/.netlify/functions/tools"
+  status = 200
+
+[[redirects]]
+  from = "/api/tools/*"
+  to = "/.netlify/functions/tools-id"
+  status = 200
+
+[[redirects]]
+  from = "/api/sets"
+  to = "/.netlify/functions/sets"
+  status = 200
+
+[[redirects]]
+  from = "/api/sets/*"
+  to = "/.netlify/functions/sets-id"
+  status = 200
+
+[[redirects]]
+  from = "/api/set-parts"
+  to = "/.netlify/functions/set-parts"
+  status = 200
+
+[[redirects]]
+  from = "/api/set-parts/*"
+  to = "/.netlify/functions/set-parts-id"
+  status = 200
+
+# Provider sets
+[[redirects]]
+  from = "/api/provider-sets"
+  to = "/.netlify/functions/provider-sets"
+  status = 200
+
+[[redirects]]
+  from = "/api/provider-sets/*"
+  to = "/.netlify/functions/provider-sets-id"
+  status = 200
+
+# Shop and orders
+[[redirects]]
+  from = "/api/shop-sets"
+  to = "/.netlify/functions/shop-sets"
+  status = 200
+
+[[redirects]]
+  from = "/api/orders"
+  to = "/.netlify/functions/orders"
+  status = 200
+
+[[redirects]]
+  from = "/api/orders/*"
+  to = "/.netlify/functions/orders-id"
+  status = 200
+
+# Dashboard
+[[redirects]]
+  from = "/api/dashboard/stats"
+  to = "/.netlify/functions/dashboard-stats"
+  status = 200
+
+# Health check
+[[redirects]]
+  from = "/api/health"
+  to = "/.netlify/functions/health"
+  status = 200
+
+[functions]
+  directory = "backend/functions"

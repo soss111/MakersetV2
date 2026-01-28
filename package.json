@@ -1,0 +1,33 @@
+{
+  "name": "makerset-receipt-hub-v2",
+  "version": "2.0.0",
+  "description": "MakerSet Receipt Hub v2 - Production-ready maker/STEM sets management platform",
+  "private": true,
+  "scripts": {
+    "db:migrate": "node database/scripts/migrate.js",
+    "db:seed": "node database/scripts/seed.js",
+    "db:setup": "npm run db:migrate && npm run db:seed",
+    "dev:backend": "netlify dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "makerset",
+    "stem",
+    "education",
+    "ecommerce"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.3",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3"
+  }
+}
